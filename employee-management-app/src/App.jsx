@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react'
-import EmployeeForm from './EmployeeForm'
+import EmployeeList from './EmployeeList';
 // import { Home } from './Home';
 
 const App = () => {
   return (
     <Fragment>
-        <EmployeeForm/>
+      <EmployeeList/>
         {/* <Home/> */}
     </Fragment>
   )

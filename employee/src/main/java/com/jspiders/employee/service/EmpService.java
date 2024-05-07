@@ -1,5 +1,7 @@
 package com.jspiders.employee.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,14 @@ public class EmpService {
 
 	public Employee addEmp(Employee employee) {
 		return empRepo.save(employee);
+	}
+
+	public List<Employee> findAllEmployees() {
+		List<Employee> employees = empRepo.findAll();
+		if (employees.size()>0) {
+			return employees;
+		}
+		return null;
 	}
 
 }

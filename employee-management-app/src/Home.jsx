@@ -1,12 +1,15 @@
-import React from 'react'
-import EmployeeForm from './EmployeeForm'
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import EmployeeForm from './EmployeeForm';
+import { NavBar } from './NavBar';
 
 export const Home = () => {
   return (
-    <>
-        <h1>EMPLOYEE MANAGMENT SYSTEM</h1>
-        <button >Add Employee Details</button>
-        
-    </>
-  )
-}
+    <Router>
+      <Routes>
+        <Route path='/' element={<NavBar />} />
+        <Route path="/add" element={<EmployeeForm />} />
+      </Routes>
+    </Router>
+  );
+};
