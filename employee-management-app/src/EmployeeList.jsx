@@ -6,11 +6,11 @@ const EmployeeList = () => {
 
     useEffect(() => {
         axios.get("http://localhost:8080/employees")
-            .then(response => {
-                setEmployees(response.data);
+            .then((res) => {
+                setEmployees(res.data);
             })
-            .catch(error => {
-                console.log("Error fetching employees data:", error);
+            .catch((error) => {
+                console.log("error",error);
             });
     }, []);
 
@@ -30,17 +30,21 @@ const EmployeeList = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {employees.map((employee) => (
-                        <tr key={employee.id}>
-                            <td>{employee.id}</td>
-                            <td>{employee.name}</td>
-                            <td>{employee.mobile}</td>
-                            <td>{employee.email}</td>
-                            <td>{employee.age}</td>
-                            <td>{employee.gender}</td>
-                            <td>{employee.department}</td>
-                        </tr>
-                    ))}
+                    {
+                        employees.map((employee, index) => {
+                            return (
+                                <tr key={index}>
+                                    <td>{employee.id}</td>
+                                    <td>{employee.name}</td>
+                                    <td>{employee.mobile}</td>
+                                    <td>{employee.email}</td>
+                                    <td>{employee.age}</td>
+                                    <td>{employee.gender}</td>
+                                    <td>{employee.department}</td>
+                                </tr>
+                            );
+                        })
+                    }
                 </tbody>
             </table>
         </div>
