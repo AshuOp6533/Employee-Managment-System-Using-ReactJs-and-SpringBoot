@@ -7,8 +7,7 @@ const EmployeeDelete = () => {
   const [status, setStatus] = useState('');
 
   const handleDelete = () => {
-    axios
-      .delete(`http://localhost:8080/employee?id=${id}`)
+    axios.delete(`http://localhost:8080/employee?id=${id}`)
       .then((response) => {
         setMessage(response.data.message);
         setStatus(response.data.status);
