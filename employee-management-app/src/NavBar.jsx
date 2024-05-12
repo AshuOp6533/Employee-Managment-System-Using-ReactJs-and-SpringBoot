@@ -7,7 +7,7 @@ export const NavBar = () => {
       <div>
         <NavLink to='/add'>Add Employee</NavLink>
         <NavLink to='/delete'>Delete Employee</NavLink>
-
+        <NavLink to='/update'>Update Employee</NavLink>
       </div>
       <Outlet />
     </div>
