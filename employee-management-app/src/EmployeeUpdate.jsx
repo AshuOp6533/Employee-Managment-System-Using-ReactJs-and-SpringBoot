@@ -49,7 +49,7 @@ const EmployeeUpdate = () => {
         <div className="col-lg-6">
           <div className="card shadow-dark bg-secondary p-5" style={{ boxShadow: "0px 0px 10px purple" }}>
             <h2 className="card-title text-center mb-5">Update Employee Information</h2>
-            {successMessage && <p className="text-success text-center">{successMessage}</p>}
+            {successMessage && <p className="text-dark text-center" style={{ fontSize: '20px', fontWeight: 'bold' }}>{successMessage}</p>}
             <form onSubmit={handleSubmit}>
               <div className="mb-3">
                 <label className="form-label">ID:</label>
