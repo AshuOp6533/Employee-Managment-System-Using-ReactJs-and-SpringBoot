@@ -6,6 +6,7 @@ export const NavBar = () => {
     <div>
       <div>
         <NavLink to='/add'>Add Employee</NavLink>
+        <NavLink to='/all'>Employees List</NavLink>
         <NavLink to='/delete'>Delete Employee</NavLink>
         <NavLink to='/update'>Update Employee</NavLink>
       </div>

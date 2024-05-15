@@ -5,14 +5,24 @@ const EmployeeList = () => {
     const [employees, setEmployees] = useState([])
 
     useEffect(() => {
-        axios.get("http://localhost:8080/employees")
-            .then((res) => {
-                setEmployees(res.data);
-            })
-            .catch((error) => {
-                console.log("error",error);
-            });
-    }, []);
+        const fetchEmployees = async () => {
+          try {
+            const response = await axios.get('http://localhost:8080/employee');
+            const responseData = response.data;
+            if (responseData.status === 200) {
+              setEmployees(responseData.data);
+            } else {
+              console.error('Error fetching employees:', responseData.message);
+            }
+          } catch (error) {
+            console.error('Error fetching employees:', error);
+          } 
+        };
+    
+        fetchEmployees();
+      }, []);
+
+
 
     return (
         <div className="container">

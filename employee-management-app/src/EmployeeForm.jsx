@@ -23,7 +23,7 @@ const EmployeeForm = () => {
 
         axios.post('http://localhost:8080/employees', newEmployee)
             .then(response => {
-                console.log(response.data);
+                console.log(response.data); 
                 setSuccessMessage('Employee added successfully!');
             })
             .catch(error => {
@@ -58,7 +58,7 @@ const EmployeeForm = () => {
                                     name="ename"
                                     value={ename}
                                     onChange={(e) => setEname(e.target.value)}
-                                // style={{ boxShadow: "0px 0px 5px black" }}
+                                style={{ boxShadow: "0px 0px 5px black" }}
                                 />
                             </div>
                             <div className="mb-3">
