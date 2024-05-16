@@ -12,7 +12,6 @@ const EmployeeUpdate = () => {
     department: '',
   });
   const [successMessage, setSuccessMessage] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -24,20 +23,14 @@ const EmployeeUpdate = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // console.log('Updating employee data:', employee); 
     axios.put('http://localhost:8080/employee', employee)
       .then((response) => {
-        if (response.data.status === 200) {
-          setSuccessMessage('Employee data updated successfully!');
-          setErrorMessage('');
-        } else {
-          setSuccessMessage('');
-          setErrorMessage('Employee not found');
-        }
+        console.log(response.data);
+        setSuccessMessage('Employee updated successfully!');
       })
       .catch((error) => {
         console.error('Error updating employee data:', error);
-        setErrorMessage('Employee not found');
-        setSuccessMessage('');
       });
     setEmployee({
       id: '',
@@ -47,7 +40,7 @@ const EmployeeUpdate = () => {
       age: '',
       gender: '',
       department: '',
-    });
+    })
   };
 
   return (
@@ -57,7 +50,6 @@ const EmployeeUpdate = () => {
           <div className="card shadow-dark bg-secondary p-5" style={{ boxShadow: "0px 0px 10px purple" }}>
             <h2 className="card-title text-center mb-5">Update Employee Information</h2>
             {successMessage && <p className="text-dark text-center" style={{ fontSize: '20px', fontWeight: 'bold' }}>{successMessage}</p>}
-            {errorMessage && <p className="text-danger text-center" style={{ fontSize: '20px', fontWeight: 'bold' }}>{errorMessage}</p>}
             <form onSubmit={handleSubmit}>
               <div className="mb-3">
                 <label className="form-label">ID:</label>
@@ -126,6 +118,7 @@ const EmployeeUpdate = () => {
                   <option value="Male">Male</option>
                   <option value="Female">Female</option>
                   <option value="Other">Other</option>
+
                 </select>
               </div>
               <div className="mb-3">

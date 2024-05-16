@@ -42,12 +42,10 @@ const EmployeeForm = () => {
         <div className="container my-5">
             <div className="row justify-content-center">
                 <div className="col-lg-6" >
-                    <div className="card shadow-dark bg-secondary p-5" style={{
-                        boxShadow: "0px 0px 10px purple",
-                        background: "linear-gradient(red,yellow,orange)"
-                    }}>
+                    <div className="card shadow-dark bg-secondary p-5"  style={{boxShadow:"0px 0px 10px black",
+                      background: "linear-gradient(red)" }}>
                         <h2 className="card-title text-center mb-5">Employee Form</h2>
-                        {successMessage && <p className="text-dark text-center" style={{ fontSize: '20px', fontWeight: 'bold' }}>{successMessage}</p>}
+                        {successMessage && <p className="text-dark text-center"style={{ fontSize: '20px',fontWeight: 'bold' }}>{successMessage}</p>}
                         <form onSubmit={submitForm}>
                             <div className="mb-3">
                                 <label className="form-label">Name:</label>
@@ -58,14 +56,14 @@ const EmployeeForm = () => {
                                     name="ename"
                                     value={ename}
                                     onChange={(e) => setEname(e.target.value)}
-                                style={{ boxShadow: "0px 0px 5px black" }}
+                                    // style={{ boxShadow: "0px 0px 5px black" }}
                                 />
                             </div>
                             <div className="mb-3">
                                 <label className="form-label">Email:</label>
                                 <input
                                     type="email"
-                                    className="form-control"
+                                    className="form-control "
                                     autoComplete="off"
                                     name="mail"
                                     value={mail}
@@ -76,7 +74,7 @@ const EmployeeForm = () => {
                                 <label className="form-label">Contact:</label>
                                 <input
                                     type="text"
-                                    className="form-control"
+                                    className="form-control "
                                     autoComplete="off"
                                     name="contact"
                                     value={contact}
@@ -101,7 +99,7 @@ const EmployeeForm = () => {
                                 <label className="form-label">Department:</label>
                                 <input
                                     type="text"
-                                    className="form-control"
+                                    className="form-control "
                                     autoComplete="off"
                                     name="dept"
                                     value={dept}
