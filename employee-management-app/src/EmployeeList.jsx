@@ -1,8 +1,11 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import EmployeeUpdate from './EmployeeUpdate'
 
 const EmployeeList = () => {
     const [employees, setEmployees] = useState([])
+    const [showUpdateForm, setShowUpdateForm] = useState(false)
+    const [selectedEmployee, setSelectedEmployee] = useState(null)
 
     useEffect(() => {
         const fetchEmployees = async () => {
@@ -22,11 +25,15 @@ const EmployeeList = () => {
         fetchEmployees();
       }, []);
 
-
+    const handleUpdateClick = (employee) => {
+        setSelectedEmployee(employee);
+        setShowUpdateForm(true);
+    }
 
     return (
         <div className="container">
             <h1 className="my-4">Employee List</h1>
+            {showUpdateForm && <EmployeeUpdate employee={selectedEmployee} />}
             <table className="table table-striped">
                 <thead>
                     <tr>
@@ -37,6 +44,7 @@ const EmployeeList = () => {
                         <th>Age</th>
                         <th>Gender</th>
                         <th>Department</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -51,6 +59,9 @@ const EmployeeList = () => {
                                     <td>{employee.age}</td>
                                     <td>{employee.gender}</td>
                                     <td>{employee.department}</td>
+                                    <td>
+                                        <button className="btn btn-sm btn-primary" onClick={() => handleUpdateClick(employee)}>Update</button>
+                                    </td>
                                 </tr>
                             );
                         })
